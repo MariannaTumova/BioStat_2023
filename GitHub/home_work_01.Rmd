@@ -1,0 +1,53 @@
+---
+title: "H_w_01"
+author: "Tumova M.A."
+output: word_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+В обработке использовались данные data_tsv.tsv из https://stepik.org/media/attachments/lesson/790857/data_tsv.tsv 
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r}
+library('readr')
+library('dplyr')
+library('tidyr')
+library('flextable')
+df <- read_tsv('data_tsv.tsv')
+df[,c(1,2)]
+head(df)
+```
+
+## Расчет статистики
+
+
+```{r, echo = FALSE}
+statistics <- list(
+  `Количество субъектов` = ~length(.x) %>% as.character(),
+  `Количество (есть данные)` = ~sum(!is.na(.x)) %>% as.character(),
+  `Нет данных` = ~sum(is.na(.x)) %>% as.character(),
+  `Ср. знач.` = ~ifelse(sum(!is.na(.x)) == 0, "Н/П*", mean(.x, na.rm = TRUE) %>% round(2) %>% as.character()),
+  `Станд. отклон.` = ~ifelse(sum(!is.na(.x)) < 3, "Н/П*", sd(.x, na.rm = TRUE) %>% round(2) %>% as.character()),
+  `95% ДИ для среднего` = ~sd(.x, na.rm = TRUE) %>% round(2) %>% as.character(),
+  `мин. - макс.` = ~ifelse(sum(!is.na(.x)) == 0, "Н/П*", paste0(min(.x, na.rm = TRUE) %>% round(2), " - ", max(.x, na.rm = TRUE) %>% round(2))),
+  `Медиана` = ~ifelse(sum(!is.na(.x)) == 0, "Н/П*", median(.x, na.rm = TRUE) %>% round(2) %>% as.character()),
+  `Q1 - Q3` = ~ifelse(sum(!is.na(.x)) == 0, "Н/П*", paste0(quantile(.x, 0.25, na.rm = TRUE) %>% round(2), " - ", quantile(.x, 0.75, na.rm = TRUE) %>% round(2)))
+)
+df %>% select(`Группа`, where(is.numeric)) %>% group_by(`Группа`) %>%
+  summarize(across(where(is.numeric), statistics)) %>% 
+  pivot_longer(!`Группа`) %>% separate(name, into = c("Переменная", "Статистика"), sep = "_") %>% 
+  rename(`Значение` = `value`) %>% 
+  flextable() %>%  theme_box()
+
+```
+#Предобработка для категориальных переменных
+```{r, echo = FALSE}
+df[, c(1,3,5)] <- lapply(df[, c(1,3,5)], as.factor)
+levels(df$`Группа крови`)
+
+```
