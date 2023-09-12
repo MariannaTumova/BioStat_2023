@@ -50,5 +50,6 @@ df %>% select(`Группа`, where(is.numeric)) %>% group_by(`Группа`) %>
 df[, c(1,3,5)] <- lapply(df[, c(1,3,5)], as.factor)
 levels(df$`Группа крови`)
 plot(df$`Группа крови`)
+shapiro.test(df$Возраст)
 
 ```
