@@ -1,0 +1,29 @@
+"0","cleaned_data %>% glimpse() "
+"1","Rows: 5,110"
+"1",""
+"1","
+"
+"1","Columns: 12"
+"1",""
+"1","
+"
+"1","$ id                  [3m[38;5;246m<dbl>[39m[23m 64778, 39373, 712, 61960, 38829, 37132, 20439, 67895, 30184, 56357, 22853, 53010, 62382, 42786, 2…
+$ gender              [3m[38;5;246m<fct>[39m[23m Male, Female, Female, Male, Female, Male, Male, Female, Male, Female, Male, Male, Male, Male, Mal…
+$ age                 [3m[38;5;246m<dbl>[39m[23m 82, 82, 82, 82, 82, 82, 82, 82, 82, 82, 82, 82, 82, 82, 82, 82, 82, 82, 82, 82, 82, 82, 82, 82, 8…
+$ hypertension        [3m[38;5;246m<fct>[39m[23m 0, 1, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1…
+$ `heart disease`     [3m[38;5;246m<fct>[39m[23m 1, 0, 1, 1, 0, 0, 1, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0…
+$ `ever married`      [3m[38;5;246m<fct>[39m[23m Yes, Yes, No, Yes, Yes, Yes, Yes, Yes, Yes, No, No, Yes, Yes, Yes, Yes, No, Yes, Yes, Yes, Yes, Y…
+$ `work type`         [3m[38;5;246m<fct>[39m[23m Private, Self-employed, Private, Private, Private, Govt_job, Govt_job, Govt_job, Private, Private…
+$ `Residence type`    [3m[38;5;246m<fct>[39m[23m Rural, Urban, Rural, Urban, Rural, Urban, Rural, Urban, Rural, Urban, Rural, Rural, Urban, Rural,…
+$ `avg glucose level` [3m[38;5;246m<dbl>[39m[23m 208.30, 196.92, 84.03, 144.90, 59.32, 200.59, 103.68, 215.94, 86.62, 215.60, 106.43, 56.75, 105.7…
+$ bmi                 [3m[38;5;246m<dbl>[39m[23m 32.5, 22.2, 26.5, 26.4, 33.2, 29.0, 25.0, 27.9, 29.5, 24.9, 27.0, 21.0, 29.5, 27.1, 27.0, 26.0, 2…
+$ `smoking status`    [3m[38;5;246m<fct>[39m[23m Unknown, never smoked, formerly smoked, smokes, never smoked, formerly smoked, never smoked, form…
+$ stroke              [3m[38;5;246m<fct>[39m[23m 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…"
+"1",""
+"1","
+"
+"0","print(paste('Осталось', nrow(cleaned_data), 'случаев'))"
+"1","[1]"
+"1"," ""Осталось 5110 случаев"""
+"1","
+"

@@ -1,0 +1,6 @@
+df %>% select(stroke, where(is.numeric)) %>% 
+  group_by(stroke) %>% 
+  summarise(across(where(is.numeric), statistics)) %>% 
+  pivot_longer(!stroke) %>% 
+  separate(name, into = c('Переменная','Статистика'), sep = '_') %>% 
+  rename('Значения' = value)

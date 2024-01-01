@@ -1,0 +1,6 @@
+"0","duplicates <- cleaned_data %>% filter(duplicated(.))"
+"0","print(paste('Идентичных строк', nrow(duplicates)))"
+"1","[1]"
+"1"," ""Идентичных строк 0"""
+"1","
+"
